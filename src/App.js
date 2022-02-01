@@ -2,29 +2,33 @@ import './App.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
 import React, { Component } from 'react'
+import QuestionToggle from './components/QuestionToggle';
 
 
 class App extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
 
-  render(){
+  render() {
     return (
       <div className="App">
-        Here is coming the app
+        {this.props.loading === true
+          ? null
+          : <QuestionToggle />}
       </div>
     );
   }
-  
+
 }
 
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps({ authedUser }) {
   return {
     loading: authedUser === null
   }
 }
+
 
 export default connect(mapStateToProps)(App);
