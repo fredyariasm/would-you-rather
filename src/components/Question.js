@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import QuestionPreview from "./QuestionPreview";
 import QuestionUnanswered from "./QuestionUnanswered";
+import QuestionResult from "./QuestionResult";
 
 class Question extends Component {
 
@@ -19,6 +20,9 @@ class Question extends Component {
                 break;
             case 'unanswered':
                 content = <QuestionUnanswered id={id}/>;
+                break;
+            case 'result':
+                content = <QuestionResult id={id}/>;
                 break;
             default:
                 break;

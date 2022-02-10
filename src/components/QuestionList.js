@@ -13,6 +13,7 @@ class QuestionList extends Component {
                         <li key={id}>
                             <Question id={id} mode='preview'></Question>
                             <Question id={id} mode='unanswered'></Question>
+                            <Question id={id} mode='result'></Question>
                         </li>
                     ))}
                 </ul>

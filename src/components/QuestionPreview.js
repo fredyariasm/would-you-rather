@@ -9,12 +9,11 @@ class QuestionPreview extends Component {
             <div>
                 <h4>Would you rather</h4>
                 <span>...{this.props.text}...</span>
-                <button className='btn' type='submit'>View Poll</button>
+                <button className='btn-wouldrather' type='submit'>View Poll</button>
             </div>
         )
     }
 }
-
 
 function mapStateToProps({ questions }, { id }) {
 

@@ -41,7 +41,7 @@ class QuestionUnanswered extends Component {
                         <input type="radio" name="wouldrather" id="option2" value={optionTwo} onChange={this.handleChange}></input>
                         <label htmlFor="option2">{optionTwo}</label>
                     </div>
-                    <button className='btn' type='submit' value="Submit">Submit</button>
+                    <button className='btn-wouldrather' type='submit' value="Submit">Submit</button>
                 </form>
             </div>
         )
