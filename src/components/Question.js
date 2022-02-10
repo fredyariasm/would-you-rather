@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import QuestionPreview from "./QuestionPreview";
+import QuestionUnanswered from "./QuestionUnanswered";
 
 class Question extends Component {
 
@@ -13,8 +14,12 @@ class Question extends Component {
         let content = null;
 
         switch (mode) {
-            case 'preview':                
+            case 'preview':
                 content = <QuestionPreview id={id}/>;
+                break;
+            case 'unanswered':
+                content = <QuestionUnanswered id={id}/>;
+                break;
             default:
                 break;
         }
