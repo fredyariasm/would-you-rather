@@ -30,7 +30,7 @@ class QuestionUnanswered extends Component {
         const { optionOne, optionTwo } = this.props
 
         return (
-            <div>
+            <div className="options-would">
                 <h4>Would you rather...</h4>
                 <form onSubmit={this.handleSubmit}>
                     <div>
