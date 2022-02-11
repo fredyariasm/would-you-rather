@@ -5,24 +5,25 @@ import QuestionPreview from "./QuestionPreview";
 import QuestionUnanswered from "./QuestionUnanswered";
 import QuestionResult from "./QuestionResult";
 
+
 class Question extends Component {
 
     render() {
 
-        const { id,name, avatar } = this.props.question
+        const { id, name, avatar } = this.props.question
         const { mode } = this.props
-        
+
         let content = null;
 
         switch (mode) {
             case 'preview':
-                content = <QuestionPreview id={id}/>;
+                content = <QuestionPreview id={id} />;
                 break;
             case 'unanswered':
-                content = <QuestionUnanswered id={id}/>;
+                content = <QuestionUnanswered id={id} />;
                 break;
             case 'result':
-                content = <QuestionResult id={id}/>;
+                content = <QuestionResult id={id} />;
                 break;
             default:
                 break;
@@ -38,7 +39,7 @@ class Question extends Component {
                         alt={`Avatar of ${name}`}
                         className='avatar'
                     />
-                    {content}                    
+                    {content}
                 </div>
 
             </div>
@@ -48,9 +49,9 @@ class Question extends Component {
 }
 
 
-function mapStateToProps({ authedUser, users, questions }, {id, mode}) {
+function mapStateToProps({ authedUser, users, questions }, { id, mode }) {
 
-    const question = questions[id]
+    const question = questions[id]        
 
     return {
         authedUser,

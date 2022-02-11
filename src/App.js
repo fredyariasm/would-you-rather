@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
 import React, { Component } from 'react'
 import QuestionToggle from './components/QuestionToggle';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import QuestionPage from './components/QuestionPage';
 
 class App extends Component {
 
@@ -14,11 +15,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        {this.props.loading === true
-          ? null
-          : <QuestionToggle />}
-      </div>
+      <Router>
+        <div className="App">
+          NAV
+          {this.props.loading === true
+            ? null
+            : <div>
+              <Route path='/' exact component={QuestionToggle} />
+              <Route path='/questions/:id' component={QuestionPage} />
+            </div>}
+        </div>
+      </Router>
+
     );
   }
 
