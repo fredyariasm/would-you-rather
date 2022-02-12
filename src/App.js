@@ -2,10 +2,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import QuestionToggle from './components/QuestionToggle';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import QuestionPage from './components/QuestionPage';
+import Nav from './components/Nav';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          NAV
+          <Nav />
           {this.props.loading === true
             ? null
             : <div>
