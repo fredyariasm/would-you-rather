@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import QuestionPage from './components/QuestionPage';
 import Nav from './components/Nav';
 import NewQuestion from './components/NewQuestion';
+import LeaderBoard from './components/LeaderBoard';
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path='/' exact component={QuestionToggle} />
               <Route path='/add' exact component={NewQuestion} />
               <Route path='/questions/:id' component={QuestionPage} />
+              <Route path='/leaderboard'component={LeaderBoard}/>
             </div>}
         </div>
       </Router>
