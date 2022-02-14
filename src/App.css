@@ -120,6 +120,13 @@ li {
   margin: 15px;
 }
 
+
+.mini-avatar {
+  height: 24px;
+  border-radius: 12px;
+  margin: 5px;
+}
+
 .question-title {
   width: 100%;
   max-width: 400px;

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 
 class Nav extends Component {
 
     render() {
+
+        const { userName , avatar} = this.props
+
         return (
             <nav className='nav'>
                 <ul>
@@ -23,10 +27,32 @@ class Nav extends Component {
                             Leader Board
                         </NavLink>
                     </li>
+                    <li>
+                        Hello,  {userName}
+                        <img
+                            src={avatar}
+                            alt={`Avatar of ${userName}`}
+                            className='mini-avatar'
+                        />
+                    </li>
+                    <li>
+                        Logout
+                    </li>
                 </ul>
             </nav>
         )
     }
 }
 
-export default Nav
+
+function mapStateToProps({ authedUser, users }) {
+
+    return {
+        userName: users[authedUser].name,
+        avatar: users[authedUser].avatarURL,
+    }
+
+}
+
+
+export default connect(mapStateToProps)(Nav)
