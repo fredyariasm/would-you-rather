@@ -7,14 +7,14 @@ class LeaderBoard extends Component {
     render() {
         return (
             <div>
-                <ul>
+                <ol>
                     {this.props.ids.map(
-                        (id) =>
+                        (id, index) =>
                             <li key={id}>
-                                <PlayerScore id={id} />
+                                <PlayerScore id={id} index={index} />
                             </li>
                     )}
-                </ul>
+                </ol>
             </div>
         )
     }

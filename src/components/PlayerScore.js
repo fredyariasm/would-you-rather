@@ -5,19 +5,21 @@ import { connect } from 'react-redux'
 class PlayerScore extends Component {
 
     render() {
-        const { answers, questions, userName, score, avatar } = this.props
+        const { answers, questions, userName, score, avatar, position } = this.props
 
 
         return (
             <div>
                 <div className="score-container">
+
+                    <h5>{position}</h5>
                     <img
                         src={avatar}
                         alt={`Avatar of ${userName}`}
                         className='avatar'
                     />
 
-                    <div className='score-player'>
+                    <div className='score-player'>                        
                         <h4>{userName}</h4>
                         <div>
                             <span className='score-item'>Answered questions</span>
@@ -42,7 +44,7 @@ class PlayerScore extends Component {
 }
 
 
-function mapStateToProps({ users }, { id }) {
+function mapStateToProps({ users }, { id, index }) {
 
     const answers = Object.keys(users[id].answers).length
     const questions = Object.keys(users[id].questions).length
@@ -54,6 +56,7 @@ function mapStateToProps({ users }, { id }) {
         answers,
         questions,
         score,
+        position:++index,
     }
 }
 
