@@ -4,11 +4,16 @@ import { formatQuestion } from "../utils/helpers";
 import QuestionPreview from "./QuestionPreview";
 import QuestionUnanswered from "./QuestionUnanswered";
 import QuestionResult from "./QuestionResult";
+import NoFound from "./NoFound";
 
 
 class Question extends Component {
 
     render() {
+
+        if (!this.props.question) {
+           return  <NoFound />
+        }
 
         const { id, name, avatar } = this.props.question
         const { mode } = this.props
@@ -24,7 +29,7 @@ class Question extends Component {
                 break;
             case 'result':
                 content = <QuestionResult id={id} />;
-                break;
+                break;          
             default:
                 break;
         }
@@ -51,12 +56,15 @@ class Question extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { id, mode }) {
 
-    const question = questions[id]        
+
+    const question = (mode !== 'nofound') ?
+        formatQuestion(questions[id], users[questions[id].author]) :
+        null
 
     return {
         authedUser,
         mode,
-        question: formatQuestion(question, users[question.author])
+        question: question
     }
 }
 

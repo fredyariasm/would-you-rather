@@ -18,13 +18,21 @@ class QuestionPage extends Component {
 
 function mapStateToProps({ questions, authedUser }, props) {
 
+
     const { id } = props.match.params
+    let mode = null
 
-    const question = questions[id]
 
-    const mode = (question.optionOne.votes.includes(authedUser) ||
-        question.optionTwo.votes.includes(authedUser)) ?
-        'result' : 'unanswered'
+    if (!questions[id]) {
+        mode = 'nofound'
+    }
+    else {
+        const question = questions[id]
+
+        mode = (question.optionOne.votes.includes(authedUser) ||
+            question.optionTwo.votes.includes(authedUser)) ?
+            'result' : 'unanswered'
+    }
 
     return {
         id,
