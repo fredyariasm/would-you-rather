@@ -349,3 +349,21 @@ li {
   cursor: pointer;
   background-color: #f1f1f1;
 }
+
+
+.link-button {
+  display: block; 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;  
+  margin: 0;
+  padding: 0;
+  color: rgb(52, 50, 54);  
+}
+
+
+.link-button:hover{
+  display: block; 
+  color: rgb(0, 0, 0);  
+  text-decoration: none;
+}

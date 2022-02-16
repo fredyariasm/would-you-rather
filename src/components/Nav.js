@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
-import { Link, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 
 class Nav extends Component {
 
 
-    handleLogOut= (event)=>{
-        
+    handleLogOut = (event) => {
+
         event.preventDefault()
-        const {dispatch} = this.props
+        const { dispatch } = this.props
 
         this.props.history.push('/')
 
@@ -52,7 +52,7 @@ class Nav extends Component {
 
                     </li>
                     <li>
-                        {(userName) ? <a href="#" className='logout' onClick={this.handleLogOut}>Log out</a> : null}
+                        {(userName) ? <button className='link-button' onClick={this.handleLogOut}>Log out</button> : null}
                     </li>
                 </ul>
             </nav>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
 import React, { Component } from 'react';
 import QuestionToggle from './components/QuestionToggle';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import QuestionPage from './components/QuestionPage';
 import Nav from './components/Nav';
 import NewQuestion from './components/NewQuestion';
