@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
 import React, { Component } from 'react';
 import QuestionToggle from './components/QuestionToggle';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import QuestionPage from './components/QuestionPage';
 import Nav from './components/Nav';
 import NewQuestion from './components/NewQuestion';
 import LeaderBoard from './components/LeaderBoard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
+import NoFound from './components/NoFound';
 
 class App extends Component {
 
@@ -22,15 +23,19 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <div>
-              <Nav />
+          <div>
+            <Nav />
+            <Switch>
               <Route path="/login" exact component={Login} />
               <ProtectedRoute path='/' exact component={QuestionToggle} />
               <ProtectedRoute path='/add' exact component={NewQuestion} />
               <ProtectedRoute path='/questions/:id' component={QuestionPage} />
-              <ProtectedRoute path='/leaderboard'component={LeaderBoard}/>              
-            </div>
-           
+              <ProtectedRoute path='/leaderboard' component={LeaderBoard} />
+              <ProtectedRoute component={NoFound} />
+            </Switch>
+
+          </div>
+
         </div>
       </Router>
 

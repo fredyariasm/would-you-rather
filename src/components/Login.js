@@ -30,10 +30,10 @@ class Login extends Component {
     render() {
 
         const { usersIds, users, authedUser } = this.props
-
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
 
         if (authedUser) {
-            return <Redirect to='/' />
+            return <Redirect to={from} />
         }
 
         return (
@@ -66,9 +66,6 @@ class Login extends Component {
 function mapStateToProps({ users, authedUser }) {
 
     const usersIds = Object.keys(users)
-
-    console.log(authedUser)
-
 
     return {
         authedUser,
