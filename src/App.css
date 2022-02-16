@@ -199,7 +199,7 @@ li {
 
 
 .active {
-  font-weight: bold;
+  font-weight: bold;  
 }
 
 .nav ul {
@@ -207,10 +207,24 @@ li {
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  margin: 0 auto; 
 }
 
 .nav li:first-child {
   padding-left: 0;
+}
+
+
+.nav a{
+  display: block; 
+  color: rgb(52, 50, 54);  
+  text-decoration: none; 
+}
+
+.nav a:hover{
+  display: block; 
+  color: rgb(0, 0, 0);  
+  text-decoration: none; 
 }
 
 .question-add-title {

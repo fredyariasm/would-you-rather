@@ -20,10 +20,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
+         
           {this.props.loading === true
             ? null
-            : <div>
+            : 
+            <div>
+              <Nav />
               <Route path='/' exact component={QuestionToggle} />
               <Route path='/add' exact component={NewQuestion} />
               <Route path='/questions/:id' component={QuestionPage} />
