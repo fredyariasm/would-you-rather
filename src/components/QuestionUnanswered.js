@@ -15,8 +15,6 @@ class QuestionUnanswered extends Component {
         const { id } = this.props
         const { optionSelected } = this.state
 
-        console.log(optionSelected)
-
         this.props.dispatch(handleAddVote({
             id,
             vote: optionSelected,

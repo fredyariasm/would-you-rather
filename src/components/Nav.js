@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser';
 
 
 class Nav extends Component {
 
+
+    handleLogOut= (event)=>{
+        
+        event.preventDefault()
+
+        const {dispatch} = this.props
+
+        dispatch(setAuthedUser(null))
+
+    }
+
     render() {
 
-        const { userName , avatar} = this.props
+        const { userName, avatar } = this.props
 
         return (
             <nav className='nav'>
@@ -28,15 +40,19 @@ class Nav extends Component {
                         </NavLink>
                     </li>
                     <li>
-                        Hello,  {userName}
-                        <img
-                            src={avatar}
-                            alt={`Avatar of ${userName}`}
-                            className='mini-avatar'
-                        />
+                        {(userName) ? `Hello, ${userName}` : null}
+
+                        {(userName) ?
+                            <img
+                                src={avatar}
+                                alt={`Avatar of ${userName}`}
+                                className='mini-avatar'
+                            /> : null
+                        }
+
                     </li>
                     <li>
-                        Logout
+                        {(userName) ? <a href="#" className='logout' onClick={this.handleLogOut}>Log out</a> : null}
                     </li>
                 </ul>
             </nav>
@@ -47,9 +63,12 @@ class Nav extends Component {
 
 function mapStateToProps({ authedUser, users }) {
 
+    const userName = (authedUser) ? users[authedUser].name : null
+    const avatar = (authedUser) ? users[authedUser].avatarURL : null
+
     return {
-        userName: users[authedUser].name,
-        avatar: users[authedUser].avatarURL,
+        userName,
+        avatar,
     }
 
 }
